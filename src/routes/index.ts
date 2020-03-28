@@ -1,6 +1,9 @@
 import { Application } from 'express';
+import auth from './auth.routes';
 
 // Load routes
 export default (app: Application) => {
-  [].forEach((route: (app: Application) => void) => route(app));
+  [
+    auth,
+  ].forEach((route: (app: Application) => void) => route(app));
 };
