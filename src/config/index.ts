@@ -2,6 +2,7 @@ import dotenv from 'dotenv';
 
 // Set default PORT
 const PORT = process.env.PORT || 3000;
+const JWT_SECRET = process.env.JWT_SECRET || '';
 
 const envFound = dotenv.config();
 
@@ -26,6 +27,11 @@ export default {
     username: process.env.PGUSER,
     password: process.env.PGPASSWORD,
   },
+
+  /**
+   * Your secret sauce
+   */
+  jwtSecret: JWT_SECRET,
 
   /**
    * API configs
