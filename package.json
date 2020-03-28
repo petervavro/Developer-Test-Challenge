@@ -1,6 +1,6 @@
 {
   "name": "developer-test-challenge",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Developer Test Challenge",
   "main": "index.js",
   "scripts": {
