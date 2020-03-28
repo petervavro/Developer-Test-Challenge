@@ -6,6 +6,7 @@ import { Model, BuildOptions } from 'sequelize';
 export interface ModelSequelizeInterface extends Model {
   // eslint-disable-next-line max-len
   belongsTo(model: ModelSequelizeInterface, options: object);
+  hasOne(model: ModelSequelizeInterface, options: object);
   hasMany(model: ModelSequelizeInterface, options: object);
 }
 
