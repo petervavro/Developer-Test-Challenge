@@ -36,7 +36,7 @@ Upload your code in a free public repository in GitHub and share with us the URL
 
 ## Installation
 
-* Set all environment in `.env`
+* Rename `.env.example` to `.env`
 
 ## Run
 
