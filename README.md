@@ -1,5 +1,4 @@
 # Developer Test Challenge
-
 You should create a simple Web application where you can achieve the next challenge.
 
 ## User Story
@@ -26,6 +25,8 @@ The information to be queried in the mobile app is the one provided by the open 
 * Use a responsive design for the Website (HTML, CSS and a framework for the responsive design)
 * Remember to use the backend as gateway to communicate the frontend with the backend
 * The backend will have the CRUD for comments and Rank for movies
+
+**! For now, only backend available, frontend coming soon.**
 
 ## Challenge
 
