@@ -7,7 +7,7 @@ module.exports = (sequelize: Sequelize) => {
       type: new DataTypes.TEXT(),
     },
     movieId: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
     },
   }) as ModelSequelizeInterfaceStatic;
 

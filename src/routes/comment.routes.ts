@@ -13,7 +13,7 @@ export default (app: Application) => {
     '/',
     celebrate({
       body: Joi.object({
-        movieId: Joi.string().required(),
+        movieId: Joi.number().integer().required(),
         body: Joi.string().required(),
       }),
     }),
@@ -27,7 +27,7 @@ export default (app: Application) => {
     '/:movieId',
     celebrate({
       params: Joi.object({
-        movieId: Joi.string().required(),
+        movieId: Joi.number().integer().required(),
       }),
     }),
     middleware.isAuth,

@@ -13,7 +13,7 @@ export default (app: Application) => {
     '/',
     celebrate({
       body: Joi.object({
-        movieId: Joi.string().required(),
+        movieId: Joi.number().integer().required(),
         rating: Joi.number().integer().min(1).max(5)
           .required(),
       }),
@@ -28,7 +28,7 @@ export default (app: Application) => {
     '/:movieId',
     celebrate({
       params: Joi.object({
-        movieId: Joi.string().required(),
+        movieId: Joi.number().integer().required(),
       }),
     }),
     middleware.isAuth,
@@ -41,7 +41,7 @@ export default (app: Application) => {
     '/:movieId',
     celebrate({
       params: Joi.object({
-        movieId: Joi.string().required(),
+        movieId: Joi.number().integer().required(),
       }),
       body: Joi.object({
         rating: Joi.number().integer().min(1).max(5)
@@ -58,7 +58,7 @@ export default (app: Application) => {
     '/:movieId',
     celebrate({
       params: Joi.object({
-        movieId: Joi.string().required(),
+        movieId: Joi.number().integer().required(),
       }),
     }),
     middleware.isAuth,

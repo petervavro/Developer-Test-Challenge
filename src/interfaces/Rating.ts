@@ -1,7 +1,7 @@
 export interface RatingInterface {
   destroy();
   id: number;
-  movieId: string;
+  movieId: number;
   userId: number;
   rating: number;
   createdAt: Date;
@@ -11,6 +11,6 @@ export interface RatingInterface {
 export interface RatingInputDTOInterface {
   id?: string | number;
   userId?: number;
-  movieId?: string;
+  movieId?: Array<number> | number;
   rating?: number;
 }

@@ -33,7 +33,7 @@ export const readController = async (req: Request, res: Response) => {
 export const updateController = async (req: Request, res: Response) => {
   // Check if exists
   const items = await findAllService({
-    movieId: req.params.movieId,
+    movieId: parseInt(req.params.movieId, 10),
     userId: req.currentUser.id,
   });
 
@@ -53,7 +53,7 @@ export const updateController = async (req: Request, res: Response) => {
 // Delete
 export const deleteController = async (req: Request, res: Response) => {
   const result = await deleteService({
-    movieId: req.params.movieId,
+    movieId: parseInt(req.params.movieId, 10),
     userId: req.currentUser.id,
   });
 

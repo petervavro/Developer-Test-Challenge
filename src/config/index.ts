@@ -39,4 +39,12 @@ export default {
   api: {
     prefix: '/api',
   },
+
+  /**
+   * themoviedb.org API configs
+   */
+  themoviedb: {
+    url: process.env.TMDB_API_URL,
+    apiKey: process.env.TMDB_API_KEY,
+  },
 };

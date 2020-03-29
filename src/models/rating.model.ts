@@ -4,7 +4,7 @@ import { ModelSequelizeInterfaceStatic } from '../types/sequelize';
 module.exports = (sequelize: Sequelize) => {
   const Rating = sequelize.define('Rating', {
     movieId: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
     },
     rating: {
       type: DataTypes.INTEGER,

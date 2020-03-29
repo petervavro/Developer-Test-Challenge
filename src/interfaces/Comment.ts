@@ -2,7 +2,7 @@ export interface CommentInterface {
   destroy();
   id: number;
   body: string;
-  movieId: string;
+  movieId: number;
   userId: number;
   createdAt: Date;
   updatedAt: Date;
@@ -11,6 +11,6 @@ export interface CommentInterface {
 export interface CommentInputDTOInterface {
   id?: string | number;
   userId?: number;
-  movieId?: string;
+  movieId?: number;
   body?: string;
 }
