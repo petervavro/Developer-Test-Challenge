@@ -14,6 +14,7 @@ module.exports = (sequelize: Sequelize) => {
 
   User.associate = (models) => {
     models.User.hasMany(models.Comment, { foreignKey: 'userId' });
+    models.User.hasOne(models.Rating, { foreignKey: 'userId' });
   };
 
   return User;

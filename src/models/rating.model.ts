@@ -2,18 +2,19 @@ import { Sequelize, DataTypes } from 'sequelize';
 import { ModelSequelizeInterfaceStatic } from '../types/sequelize';
 
 module.exports = (sequelize: Sequelize) => {
-  const Comment = sequelize.define('Comment', {
-    body: {
-      type: new DataTypes.TEXT(),
-    },
+  const Rating = sequelize.define('Rating', {
     movieId: {
+      type: DataTypes.INTEGER,
+    },
+    rating: {
       type: DataTypes.INTEGER,
     },
   }) as ModelSequelizeInterfaceStatic;
 
-  Comment.associate = (models) => {
+  Rating.associate = (models) => {
     // Association to User
-    models.Comment.belongsTo(models.User, {
+    models.Rating.belongsTo(models.User, {
+      onDelete: 'CASCADE',
       foreignKey: {
         allowNull: false,
         name: 'userId',
@@ -21,5 +22,5 @@ module.exports = (sequelize: Sequelize) => {
     });
   };
 
-  return Comment;
+  return Rating;
 };

@@ -37,6 +37,7 @@ Upload your code in a free public repository in GitHub and share with us the URL
 ## Installation
 
 * Rename `.env.example` to `.env`
+* Get your API key TMDB, [here.](https://www.themoviedb.org/settings/api)
 
 ## Run
 

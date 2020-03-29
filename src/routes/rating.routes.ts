@@ -3,7 +3,7 @@ import { celebrate, Joi } from 'celebrate';
 import middleware from '../middlewares';
 import { wrap } from '../helpers';
 
-import controller from '../controllers/comment.controllers';
+import controller from '../controllers/rating.controllers';
 
 export default (app: Application) => {
   const router = Router();
@@ -14,7 +14,8 @@ export default (app: Application) => {
     celebrate({
       body: Joi.object({
         movieId: Joi.number().integer().required(),
-        body: Joi.string().required(),
+        rating: Joi.number().integer().min(1).max(5)
+          .required(),
       }),
     }),
     middleware.isAuth,
@@ -37,13 +38,14 @@ export default (app: Application) => {
 
   // Update
   router.put(
-    '/:id',
+    '/:movieId',
     celebrate({
       params: Joi.object({
-        id: Joi.number().integer().required(),
+        movieId: Joi.number().integer().required(),
       }),
       body: Joi.object({
-        body: Joi.string().required(),
+        rating: Joi.number().integer().min(1).max(5)
+          .required(),
       }),
     }),
     middleware.isAuth,
@@ -53,10 +55,10 @@ export default (app: Application) => {
 
   // Delete
   router.delete(
-    '/:id',
+    '/:movieId',
     celebrate({
       params: Joi.object({
-        id: Joi.number().integer().required(),
+        movieId: Joi.number().integer().required(),
       }),
     }),
     middleware.isAuth,
@@ -64,5 +66,5 @@ export default (app: Application) => {
     wrap(controller.delete),
   );
 
-  app.use('/api/comments', router);
+  app.use('/api/ratings', router);
 };
