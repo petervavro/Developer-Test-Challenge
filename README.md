@@ -1,5 +1,4 @@
 # Developer Test Challenge
-
 You should create a simple Web application where you can achieve the next challenge.
 
 ## User Story
@@ -27,6 +26,8 @@ The information to be queried in the mobile app is the one provided by the open 
 * Remember to use the backend as gateway to communicate the frontend with the backend
 * The backend will have the CRUD for comments and Rank for movies
 
+**! For now, only backend available, frontend coming soon.**
+
 ## Challenge
 
 ![Application Schema](https://raw.githubusercontent.com/petervavro/Developer-Test-Challenge/master/images/developer-test-challenge_App-Design.png)
@@ -42,6 +43,8 @@ Upload your code in a free public repository in GitHub and share with us the URL
 ## Run
 
 `$ docker-compose up --build`
+
+[API Documentation](https://documenter.getpostman.com/view/3890313/SzYW418v)
 
 ## Useful stuff
 
