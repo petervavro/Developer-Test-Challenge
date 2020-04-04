@@ -7,11 +7,13 @@ RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
 COPY package.json /usr/src/app/
-RUN npm install
+
+RUN if [ "$NODE_ENV" = "development" ]; \
+	then npm install;  \
+	else npm install --only=production; \
+	fi
 
 COPY . /usr/src/app
-RUN npm run build
+# RUN npm run build
 
 EXPOSE 3000 9229
-
-CMD ./start.sh
