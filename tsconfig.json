@@ -1,17 +1,14 @@
 {
-  "compilerOptions": {
-    "baseUrl": "",
-    "target": "es5",
-    "module": "commonjs",
-    "sourceMap": true,
-    "outDir": "./dist",
-    "strict": false,
-    "esModuleInterop": true,
-    "typeRoots": [
-      "./node_modules/@types",
-    ],
-  },
-  "include": [
-    "./src/**/*"
-  ]
+	"compilerOptions": {
+		"baseUrl": "",
+		"target": "es2017",
+		"module": "commonjs",
+		"outDir": "./dist",
+		"sourceMap": true,
+		"strict": false,
+		"esModuleInterop": true,
+		"typeRoots": ["./node_modules/@types", "./src/types"]
+	},
+	"include": ["src/**/*","tests/**/*"],
+	"exclude": ["./node_modules"]
 }
