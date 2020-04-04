@@ -49,6 +49,7 @@ Upload your code in a free public repository in GitHub.
 [API Documentation](https://documenter.getpostman.com/view/3890313/SzYW418v)
 
 ### Useful stuff
+* Run a command in a running container `docker exec -it developer-test-challenge_app_1 bash`
 
 #### Postgres Container
 ```

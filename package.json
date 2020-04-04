@@ -6,11 +6,11 @@
   "scripts": {
     "start": "ts-node src/index.ts",
     "start:dev": "ts-node-dev --inspect=0.0.0.0:9229 --watch tests --clear src/index.ts",
-    "test": "PORT=3001 mocha --require ts-node/register --extensions ts,tsx --watch --watch-files src 'tests/**/*.{ts,tsx}'",
-    "test:w": "PORT=3001 ts-mocha tests/**/*.spec.ts -w tests --watch-extensions ts",
+    "test": "PORT=3001 ts-mocha tests/**/*.spec.ts -w tests --watch-extensions ts",
+    "test:nots": "PORT=3001 mocha --require ts-node/register --extensions ts,tsx --watch --watch-files src 'tests/**/*.{ts,tsx}'",
     "build": "tsc",
     "lint": "eslint . --ext .js,.ts",
-    "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write"
+    "prettier-format": "prettier --config .prettierrc 'src/**/*.ts','tests/**/*.ts' --write"
   },
   "repository": {
     "type": "git",
