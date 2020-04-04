@@ -22,14 +22,16 @@ const sequelize = new Sequelize(
       max: 5,
       min: 0,
       acquire: 30000,
-      idle: 10000,
-    },
-  },
+      idle: 10000
+    }
+  }
 );
 
-fs
-  .readdirSync(__dirname)
-  .filter((file) => (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js'))
+fs.readdirSync(__dirname)
+  .filter(
+    (file) =>
+      file.indexOf('.') !== 0 && file !== basename && file.slice(-3) === '.js'
+  )
   .forEach((file) => {
     // Import model
     const model = sequelize.import(path.join(__dirname, file));
@@ -46,7 +48,8 @@ Object.keys(db).forEach((modelName) => {
 
 // Database synchronization
 // https://sequelize.org/v5/manual/models-definition.html
-sequelize.sync() // { force: true }
+sequelize
+  .sync() // { force: true }
   .then(() => {
     // eslint-disable-next-line no-console
     console.log('Database & tables created!');
@@ -55,5 +58,5 @@ sequelize.sync() // { force: true }
 module.exports = {
   ...db,
   sequelize,
-  Sequelize,
+  Sequelize
 };

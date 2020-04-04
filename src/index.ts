@@ -17,9 +17,11 @@ app.use(bodyParser.json());
 app.use(methodOverride());
 
 // CORS
-app.use(cors({
-  origin: '*',
-}));
+app.use(
+  cors({
+    origin: '*'
+  })
+);
 
 // Default route
 app.get('/', (req: Request, res: Response) => {
@@ -35,15 +37,15 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   // If Unauthorized
   if (err.name === 'UnauthorizedError') {
     return res.status(401).send({
-      success: false,
+      success: false
     });
   }
 
   return res.status(500).send({
     error: {
       code: 500,
-      message: err.message,
-    },
+      message: err.message
+    }
   });
 });
 
@@ -56,4 +58,4 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   });
 })();
 
-export default app
+export default app;

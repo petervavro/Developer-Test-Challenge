@@ -14,12 +14,12 @@ export default (app: Application) => {
     celebrate({
       body: Joi.object({
         movieId: Joi.number().integer().required(),
-        body: Joi.string().required(),
-      }),
+        body: Joi.string().required()
+      })
     }),
     middleware.isAuth,
     wrap(middleware.attachCurrentUser),
-    wrap(controller.create),
+    wrap(controller.create)
   );
 
   // Read
@@ -27,12 +27,12 @@ export default (app: Application) => {
     '/:movieId',
     celebrate({
       params: Joi.object({
-        movieId: Joi.number().integer().required(),
-      }),
+        movieId: Joi.number().integer().required()
+      })
     }),
     middleware.isAuth,
     wrap(middleware.attachCurrentUser),
-    wrap(controller.read),
+    wrap(controller.read)
   );
 
   // Update
@@ -40,15 +40,15 @@ export default (app: Application) => {
     '/:id',
     celebrate({
       params: Joi.object({
-        id: Joi.number().integer().required(),
+        id: Joi.number().integer().required()
       }),
       body: Joi.object({
-        body: Joi.string().required(),
-      }),
+        body: Joi.string().required()
+      })
     }),
     middleware.isAuth,
     wrap(middleware.attachCurrentUser),
-    wrap(controller.update),
+    wrap(controller.update)
   );
 
   // Delete
@@ -56,12 +56,12 @@ export default (app: Application) => {
     '/:id',
     celebrate({
       params: Joi.object({
-        id: Joi.number().integer().required(),
-      }),
+        id: Joi.number().integer().required()
+      })
     }),
     middleware.isAuth,
     wrap(middleware.attachCurrentUser),
-    wrap(controller.delete),
+    wrap(controller.delete)
   );
 
   app.use('/api/comments', router);

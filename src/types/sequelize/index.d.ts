@@ -12,6 +12,6 @@ export interface ModelSequelizeInterface extends Model {
 
 // Need to declare the static model so `findOne` etc. use correct types.
 export type ModelSequelizeInterfaceStatic = typeof Model & {
-  new(values?: object, options?: BuildOptions): ModelSequelizeInterface;
+  new (values?: object, options?: BuildOptions): ModelSequelizeInterface;
   associate(models: Record<string, ModelSequelizeInterface>): void;
-}
+};

@@ -5,15 +5,14 @@ import {
   createService,
   findAllService,
   updateService,
-  deleteService,
+  deleteService
 } from '../services/rating.services';
-
 
 // Create
 export const createController = async (req: Request, res: Response) => {
   const { id } = await createService({
     ...req.body,
-    userId: req.currentUser.id,
+    userId: req.currentUser.id
   } as RatingInputDTOInterface);
 
   return res.status(201).json({ id });
@@ -23,7 +22,7 @@ export const createController = async (req: Request, res: Response) => {
 export const readController = async (req: Request, res: Response) => {
   const items = await findAllService({
     ...req.params,
-    userId: req.currentUser.id,
+    userId: req.currentUser.id
   });
 
   return res.json({ items });
@@ -34,18 +33,15 @@ export const updateController = async (req: Request, res: Response) => {
   // Check if exists
   const items = await findAllService({
     movieId: parseInt(req.params.movieId, 10),
-    userId: req.currentUser.id,
+    userId: req.currentUser.id
   });
 
   if (items.length === 0) return res.status(404).json({});
 
   // Proceed to update
-  const result = await updateService(
-    items[0].id,
-    {
-      ...req.body,
-    } as RatingInputDTOInterface,
-  );
+  const result = await updateService(items[0].id, {
+    ...req.body
+  } as RatingInputDTOInterface);
 
   return res.json({ success: result });
 };
@@ -54,14 +50,14 @@ export const updateController = async (req: Request, res: Response) => {
 export const deleteController = async (req: Request, res: Response) => {
   const result = await deleteService({
     movieId: parseInt(req.params.movieId, 10),
-    userId: req.currentUser.id,
+    userId: req.currentUser.id
   });
 
   return res.json({
     success: true,
     payload: {
-      deleted: result,
-    },
+      deleted: result
+    }
   });
 };
 
@@ -69,5 +65,5 @@ export default {
   create: createController,
   read: readController,
   update: updateController,
-  delete: deleteController,
+  delete: deleteController
 };

@@ -5,11 +5,11 @@ module.exports = (sequelize: Sequelize) => {
   const User = sequelize.define('User', {
     email: {
       type: new DataTypes.STRING(),
-      unique: true,
+      unique: true
     },
     password: {
-      type: new DataTypes.BLOB(),
-    },
+      type: new DataTypes.BLOB()
+    }
   }) as ModelSequelizeInterfaceStatic;
 
   User.associate = (models) => {

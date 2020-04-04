@@ -10,7 +10,7 @@
     "test:nots": "PORT=3001 mocha --require ts-node/register --extensions ts,tsx --watch --watch-files src 'tests/**/*.{ts,tsx}'",
     "build": "tsc",
     "lint": "eslint . --ext .js,.ts",
-    "prettier-format": "prettier --config .prettierrc 'src/**/*.ts','tests/**/*.ts' --write"
+    "prettier-format": "prettier --config .prettierrc \"src/**/*.ts\" --write"
   },
   "repository": {
     "type": "git",

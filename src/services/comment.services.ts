@@ -1,5 +1,8 @@
 /* eslint-disable max-len */
-import { CommentInterface, CommentInputDTOInterface } from '../interfaces/Comment';
+import {
+  CommentInterface,
+  CommentInputDTOInterface
+} from '../interfaces/Comment';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const db = require('../models');
@@ -10,9 +13,11 @@ const { Comment } = db;
  * Create service
  * @param commentInputDTO
  */
-export const createService = async (commentInputDTO: CommentInputDTOInterface): Promise<{ id: string }> => {
+export const createService = async (
+  commentInputDTO: CommentInputDTOInterface
+): Promise<{ id: string }> => {
   const record = await Comment.create({
-    ...commentInputDTO,
+    ...commentInputDTO
   });
 
   if (!record) {
@@ -20,18 +25,19 @@ export const createService = async (commentInputDTO: CommentInputDTOInterface): 
   }
 
   return {
-    id: record.id,
+    id: record.id
   };
 };
-
 
 /**
  * Find all service
  * @param commentInputDTO
  */
-export const findAllService = async (commentInputDTO: CommentInputDTOInterface): Promise<Array<CommentInterface>> => {
+export const findAllService = async (
+  commentInputDTO: CommentInputDTOInterface
+): Promise<Array<CommentInterface>> => {
   const records = await Comment.findAll({
-    where: { ...commentInputDTO },
+    where: { ...commentInputDTO }
   });
 
   return records;
@@ -41,27 +47,35 @@ export const findAllService = async (commentInputDTO: CommentInputDTOInterface):
  * Update service
  * @param commentInputDTO
  */
-export const updateService = async (id: number, commentInputDTO: CommentInputDTOInterface): Promise<boolean> => {
-  const record = await Comment.update({
-    ...commentInputDTO,
-  }, {
-    where: {
-      id,
+export const updateService = async (
+  id: number,
+  commentInputDTO: CommentInputDTOInterface
+): Promise<boolean> => {
+  const record = await Comment.update(
+    {
+      ...commentInputDTO
     },
-  });
+    {
+      where: {
+        id
+      }
+    }
+  );
 
   // https://sequelize.org/master/class/lib/model.js~Model.html#static-method-update
-  return (record[0] === 1);
+  return record[0] === 1;
 };
 
 /**
  * Delete service
  * @param commentInputDTO
  */
-export const deleteService = async (commentInputDTO: CommentInputDTOInterface): Promise<number> => {
+export const deleteService = async (
+  commentInputDTO: CommentInputDTOInterface
+): Promise<number> => {
   // Check if exists
   const items = await findAllService({
-    ...commentInputDTO,
+    ...commentInputDTO
   });
 
   let results = [];
@@ -77,6 +91,5 @@ export const deleteService = async (commentInputDTO: CommentInputDTOInterface): 
 
   return results.length;
 };
-
 
 export default {};

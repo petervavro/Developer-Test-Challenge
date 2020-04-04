@@ -14,10 +14,10 @@ export default (app: Application) => {
     celebrate({
       body: Joi.object({
         email: Joi.string().required(),
-        password: Joi.string().required(),
-      }),
+        password: Joi.string().required()
+      })
     }),
-    wrap(controller.signUp),
+    wrap(controller.signUp)
   );
 
   // SignIn
@@ -26,10 +26,10 @@ export default (app: Application) => {
     celebrate({
       body: Joi.object({
         email: Joi.string().required(),
-        password: Joi.string().required(),
-      }),
+        password: Joi.string().required()
+      })
     }),
-    wrap(controller.signIn),
+    wrap(controller.signIn)
   );
 
   app.use('/api/auth', router);

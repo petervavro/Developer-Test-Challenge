@@ -22,9 +22,9 @@ const generateToken = (user: UserInterface) => {
   return jwt.sign(
     {
       id: user.id, // Use in the middleware 'isAuth'
-      exp: (exp.getTime() / 1000),
+      exp: exp.getTime() / 1000
     },
-    config.jwtSecret,
+    config.jwtSecret
   );
 };
 
@@ -44,7 +44,9 @@ const filterUserObject = (user: UserInterface) => {
  * Sign Up method
  * @param userInputDTO
  */
-export const signUpService = async (userInputDTO: UserInputDTOInterface): Promise<{ user: UserInterface; token: string }> => {
+export const signUpService = async (
+  userInputDTO: UserInputDTOInterface
+): Promise<{ user: UserInterface; token: string }> => {
   // Create a new instance of SecurePass. Optional difficulty configurations can be passed in here.
   const sp = new SecurePass();
 
@@ -57,8 +59,8 @@ export const signUpService = async (userInputDTO: UserInputDTOInterface): Promis
     where: { email: userInputDTO.email },
     defaults: {
       ...userInputDTO,
-      password: hashedPassword,
-    },
+      password: hashedPassword
+    }
   });
 
   // In case ite already exists
@@ -66,7 +68,7 @@ export const signUpService = async (userInputDTO: UserInputDTOInterface): Promis
 
   return {
     user: filterUserObject(record[0].dataValues),
-    token: generateToken(record[0]), // Generate JWT
+    token: generateToken(record[0]) // Generate JWT
   };
 };
 
@@ -74,7 +76,10 @@ export const signUpService = async (userInputDTO: UserInputDTOInterface): Promis
  * Sign In method
  * @param userInputDTO
  */
-export const signInService = async (email: string, password: string): Promise<{ user: UserInterface; token: string }> => {
+export const signInService = async (
+  email: string,
+  password: string
+): Promise<{ user: UserInterface; token: string }> => {
   const record = await User.findOne({ email });
 
   if (!record) {
@@ -84,14 +89,17 @@ export const signInService = async (email: string, password: string): Promise<{ 
   // Verify password
   const sp = new SecurePass();
   const passwordBuffer = Buffer.from(password);
-  const verificationResult = await sp.verifyHash(passwordBuffer, record.password);
+  const verificationResult = await sp.verifyHash(
+    passwordBuffer,
+    record.password
+  );
 
   if (SecurePass.isValid(verificationResult)) {
     const token = generateToken(record);
 
     return {
       user: filterUserObject(record.dataValues),
-      token,
+      token
     };
   }
 

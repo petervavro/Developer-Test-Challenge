@@ -25,7 +25,7 @@ export default {
     port: process.env.PGPORT,
     name: process.env.PGDATABASE,
     username: process.env.PGUSER,
-    password: process.env.PGPASSWORD,
+    password: process.env.PGPASSWORD
   },
 
   /**
@@ -37,7 +37,7 @@ export default {
    * API configs
    */
   api: {
-    prefix: '/api',
+    prefix: '/api'
   },
 
   /**
@@ -45,6 +45,6 @@ export default {
    */
   themoviedb: {
     url: process.env.TMDB_API_URL,
-    apiKey: process.env.TMDB_API_KEY,
-  },
+    apiKey: process.env.TMDB_API_KEY
+  }
 };

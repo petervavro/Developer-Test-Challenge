@@ -12,12 +12,11 @@ export default (app: Application) => {
     '/:year/:page?',
     celebrate({
       params: Joi.object({
-        year: Joi.number().integer().min(2010).max(2019)
-          .required(),
+        year: Joi.number().integer().min(2010).max(2019).required(),
         page: Joi.number().integer().default(1)
-      }),
+      })
     }),
-    wrap(controller.read),
+    wrap(controller.read)
   );
 
   app.use('/api/movies', router);
