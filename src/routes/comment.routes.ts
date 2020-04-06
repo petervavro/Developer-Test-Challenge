@@ -1,12 +1,12 @@
-import { Application, Router } from 'express';
-import { celebrate, Joi } from 'celebrate';
-import middleware from '../middlewares';
-import { wrap } from '../helpers';
+import { Application, Router } from 'express'
+import { celebrate, Joi } from 'celebrate'
+import middleware from '../middlewares'
+import { wrap } from '../helpers'
 
-import controller from '../controllers/comment.controllers';
+import controller from '../controllers/comment.controllers'
 
 export default (app: Application) => {
-  const router = Router();
+  const router = Router()
 
   // Create
   router.post(
@@ -20,7 +20,7 @@ export default (app: Application) => {
     middleware.isAuth,
     wrap(middleware.attachCurrentUser),
     wrap(controller.create)
-  );
+  )
 
   // Read
   router.get(
@@ -33,10 +33,10 @@ export default (app: Application) => {
     middleware.isAuth,
     wrap(middleware.attachCurrentUser),
     wrap(controller.read)
-  );
+  )
 
   // Update
-  router.put(
+  router.patch(
     '/:id',
     celebrate({
       params: Joi.object({
@@ -49,7 +49,7 @@ export default (app: Application) => {
     middleware.isAuth,
     wrap(middleware.attachCurrentUser),
     wrap(controller.update)
-  );
+  )
 
   // Delete
   router.delete(
@@ -62,7 +62,7 @@ export default (app: Application) => {
     middleware.isAuth,
     wrap(middleware.attachCurrentUser),
     wrap(controller.delete)
-  );
+  )
 
-  app.use('/api/comments', router);
-};
+  app.use('/api/comments', router)
+}
