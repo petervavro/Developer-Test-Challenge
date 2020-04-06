@@ -46,12 +46,15 @@ Upload your code in a free public repository in GitHub.
 
 - Rename `.env.example` to `.env`
 - Get your API key TMDB, [here.](https://www.themoviedb.org/settings/api)
+- [API Documentation](https://documenter.getpostman.com/view/3890313/SzYW418v)
 
 ### Run
 
 `$ docker-compose up --build`
 
-[API Documentation](https://documenter.getpostman.com/view/3890313/SzYW418v)
+### Test
+
+`$ docker exec -it developer-test-challenge_app_1 npm run test`
 
 ### Useful stuff
 
