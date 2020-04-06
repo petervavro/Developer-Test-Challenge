@@ -60,5 +60,5 @@ Upload your code in a free public repository in GitHub.
 #### Postgres Container
 
 ```
-$ docker exec -it developer_test_challenge_postgres_1 psql -U postgres
+$ docker exec -it developer-test-challenge_postgres_1 psql -U postgres
 ```
