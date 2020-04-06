@@ -1,19 +1,34 @@
 module.exports = {
-    extends: ['airbnb', 'plugin:@typescript-eslint/recommended'],
-    parser: '@typescript-eslint/parser',
-    plugins: ['@typescript-eslint', 'prettier'],
-    settings: {
-        'import/parsers': {
-            '@typescript-eslint/parser': ['.ts', '.tsx'],
+  root: true,
+  extends: [
+    'eslint:recommended',
+    'plugin:@typescript-eslint/eslint-recommended',
+    'plugin:@typescript-eslint/recommended',
+    'prettier'
+  ],
+  parser: '@typescript-eslint/parser',
+  plugins: ['@typescript-eslint', 'prettier'],
+  rules: {
+    'prettier/prettier': [
+      'error',
+      {
+        endOfLine: 'auto'
+      }
+    ],
+    '@typescript-eslint/indent': [2, 2],
+    '@typescript-eslint/explicit-function-return-type': 'off', // disable the rule for all files
+    '@typescript-eslint/member-delimiter-style': [
+      2,
+      {
+        multiline: {
+          delimiter: 'none',
+          requireLast: false
         },
-        'import/resolver': {
-            typescript: {},
-        },
-    },
-    rules: {
-        'import/no-extraneous-dependencies': [2, { devDependencies: ['**/test.tsx', '**/test.ts'] }],
-        '@typescript-eslint/indent': [2, 2],
-        'import/extensions': [2, "never"],
-        '@typescript-eslint/explicit-function-return-type': "off" // disable the rule for all files
-    },
-};
+        singleline: {
+          delimiter: 'semi',
+          requireLast: false
+        }
+      }
+    ]
+  }
+}

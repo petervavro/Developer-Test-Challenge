@@ -4,11 +4,11 @@ import { ModelSequelizeInterfaceStatic } from '../types/sequelize';
 module.exports = (sequelize: Sequelize) => {
   const Rating = sequelize.define('Rating', {
     movieId: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.INTEGER
     },
     rating: {
-      type: DataTypes.INTEGER,
-    },
+      type: DataTypes.INTEGER
+    }
   }) as ModelSequelizeInterfaceStatic;
 
   Rating.associate = (models) => {
@@ -17,8 +17,8 @@ module.exports = (sequelize: Sequelize) => {
       onDelete: 'CASCADE',
       foreignKey: {
         allowNull: false,
-        name: 'userId',
-      },
+        name: 'userId'
+      }
     });
   };
 

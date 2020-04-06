@@ -1,12 +1,12 @@
-import { Application, Router } from 'express';
-import { celebrate, Joi } from 'celebrate';
-import middleware from '../middlewares';
-import { wrap } from '../helpers';
+import { Application, Router } from 'express'
+import { celebrate, Joi } from 'celebrate'
+import middleware from '../middlewares'
+import { wrap } from '../helpers'
 
-import controller from '../controllers/comment.controllers';
+import controller from '../controllers/comment.controllers'
 
 export default (app: Application) => {
-  const router = Router();
+  const router = Router()
 
   // Create
   router.post(
@@ -14,55 +14,55 @@ export default (app: Application) => {
     celebrate({
       body: Joi.object({
         movieId: Joi.number().integer().required(),
-        body: Joi.string().required(),
-      }),
+        body: Joi.string().required()
+      })
     }),
     middleware.isAuth,
     wrap(middleware.attachCurrentUser),
-    wrap(controller.create),
-  );
+    wrap(controller.create)
+  )
 
   // Read
   router.get(
     '/:movieId',
     celebrate({
       params: Joi.object({
-        movieId: Joi.number().integer().required(),
-      }),
+        movieId: Joi.number().integer().required()
+      })
     }),
     middleware.isAuth,
     wrap(middleware.attachCurrentUser),
-    wrap(controller.read),
-  );
+    wrap(controller.read)
+  )
 
   // Update
-  router.put(
+  router.patch(
     '/:id',
     celebrate({
       params: Joi.object({
-        id: Joi.number().integer().required(),
+        id: Joi.number().integer().required()
       }),
       body: Joi.object({
-        body: Joi.string().required(),
-      }),
+        body: Joi.string().required()
+      })
     }),
     middleware.isAuth,
     wrap(middleware.attachCurrentUser),
-    wrap(controller.update),
-  );
+    wrap(controller.update)
+  )
 
   // Delete
   router.delete(
     '/:id',
     celebrate({
       params: Joi.object({
-        id: Joi.number().integer().required(),
-      }),
+        id: Joi.number().integer().required()
+      })
     }),
     middleware.isAuth,
     wrap(middleware.attachCurrentUser),
-    wrap(controller.delete),
-  );
+    wrap(controller.delete)
+  )
 
-  app.use('/api/comments', router);
-};
+  app.use('/api/comments', router)
+}

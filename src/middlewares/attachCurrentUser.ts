@@ -13,13 +13,20 @@ const { User } = db;
  * @param {*} res  Express res Object
  * @param {*} next  Express next Function
  */
-const attachCurrentUser = async (req: Request, res: Response, next: NextFunction) => {
+const attachCurrentUser = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
   if (
     !(
-      typeof req.token !== 'undefined' && req.token !== undefined
-        && typeof req.token.id !== 'undefined' && req.token.id !== undefined
+      typeof req.token !== 'undefined' &&
+      req.token !== undefined &&
+      typeof req.token.id !== 'undefined' &&
+      req.token.id !== undefined
     )
-  ) return res.sendStatus(401);
+  )
+    return res.sendStatus(401);
 
   // Get user
   const userRecord = await User.findOne({ id: req.token.id });
@@ -27,7 +34,7 @@ const attachCurrentUser = async (req: Request, res: Response, next: NextFunction
   if (!userRecord) return res.sendStatus(401);
 
   req.currentUser = {
-    ...userRecord.dataValues,
+    ...userRecord.dataValues
   };
 
   return next();

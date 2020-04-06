@@ -4,11 +4,11 @@ import { ModelSequelizeInterfaceStatic } from '../types/sequelize';
 module.exports = (sequelize: Sequelize) => {
   const Comment = sequelize.define('Comment', {
     body: {
-      type: new DataTypes.TEXT(),
+      type: new DataTypes.TEXT()
     },
     movieId: {
-      type: DataTypes.INTEGER,
-    },
+      type: DataTypes.INTEGER
+    }
   }) as ModelSequelizeInterfaceStatic;
 
   Comment.associate = (models) => {
@@ -16,8 +16,8 @@ module.exports = (sequelize: Sequelize) => {
     models.Comment.belongsTo(models.User, {
       foreignKey: {
         allowNull: false,
-        name: 'userId',
-      },
+        name: 'userId'
+      }
     });
   };
 
