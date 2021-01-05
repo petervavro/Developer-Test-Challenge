@@ -22,7 +22,7 @@
   "homepage": "https://github.com/petervavro/Developer-Test-Challenge#readme",
   "dependencies": {
     "argon2-pass": "^1.0.2",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "body-parser": "^1.19.0",
     "celebrate": "^12.0.1",
     "cors": "^2.8.5",
